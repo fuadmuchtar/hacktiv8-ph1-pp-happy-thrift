@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "happythrift-db",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}

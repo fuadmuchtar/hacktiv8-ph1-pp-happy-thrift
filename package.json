@@ -1,0 +1,30 @@
+{
+  "name": "hacktiv8-ph1-pp-happy-thrift",
+  "version": "1.0.0",
+  "description": "Pair Project Hacktive8-82 Phase 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fuadmuchtar/hacktiv8-ph1-pp-happy-thrift.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fuadmuchtar/hacktiv8-ph1-pp-happy-thrift/issues"
+  },
+  "homepage": "https://github.com/fuadmuchtar/hacktiv8-ph1-pp-happy-thrift#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "pg": "^8.14.1",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "sequelize-cli": "^6.6.2"
+  }
+}
