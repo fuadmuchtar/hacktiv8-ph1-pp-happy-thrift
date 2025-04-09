@@ -12,10 +12,16 @@
         "phoneNumber": "08123452"
     },
     {
+        "firstName": "Seller",
+        "lastName": "Dummy2",
+        "address": "Jl. Gambir, Jakarta",
+        "phoneNumber": "08123453"
+    },
+    {
         "firstName": "User",
         "lastName": "Dummy1",
         "address": "Jl. Raden Intan, Jakarta",
-        "phoneNumber": "08123453"
+        "phoneNumber": "08123454"
     }
     
 ]

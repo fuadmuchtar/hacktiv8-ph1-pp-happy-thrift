@@ -3,6 +3,7 @@ const Controller = require('../controllers/controller')
 const router = express.Router()
 
 router.get('/', Controller.landingPage)
+router.get('/products', Controller.getAllProducts)
 
 router.use('/admin', require('./admin'))
 router.use('/seller', require('./seller'))

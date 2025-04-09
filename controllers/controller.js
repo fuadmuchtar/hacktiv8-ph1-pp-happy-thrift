@@ -1,5 +1,5 @@
 const { Op } = require('sequelize')
-const { Profile, User } = require('../models')
+const { Profile, User, Cart, CartProduct, Category, Order, OrderDetail, Product, Store } = require('../models')
 
 
 class Controller{
@@ -14,6 +14,16 @@ class Controller{
         try {
             res.render('landingpage')
         } catch (error) {
+            res.send(error)
+        }
+    }
+    static async getAllProducts(req, res){
+        try {
+            let data = Product.findAll()
+
+            res.send(data)
+        } catch (error) {
+            console.log(error)
             res.send(error)
         }
     }
