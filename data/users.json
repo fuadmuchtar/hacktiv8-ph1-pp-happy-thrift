@@ -14,11 +14,18 @@
       "ProfileId": 2
     },
     {
+      "username": "sellerdummy2",
+      "email": "sellerdummy2@gmail.com",
+      "password": "sellerdummy2",
+      "role": "seller",
+      "ProfileId": 3
+    },
+    {
       "username": "userdummy1",
       "email": "userdummy1@gmail.com",
       "password": "userdummy1",
       "role": "user",
-      "ProfileId": 3
+      "ProfileId": 4
     }
   ]
   
