@@ -1,0 +1,21 @@
+[
+    {
+        "firstName": "Super",
+        "lastName": "Admin",
+        "address": "Jl. Veteran, Jakarta",
+        "phoneNumber": "08123451"
+    },
+    {
+        "firstName": "Seller",
+        "lastName": "Dummy1",
+        "address": "Jl. Pramuka, Jakarta",
+        "phoneNumber": "08123452"
+    },
+    {
+        "firstName": "User",
+        "lastName": "Dummy1",
+        "address": "Jl. Raden Intan, Jakarta",
+        "phoneNumber": "08123453"
+    }
+    
+]

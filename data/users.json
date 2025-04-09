@@ -4,24 +4,21 @@
       "email": "superadmin@gmail.com",
       "password": "superadmin",
       "role": "admin",
-      "ProfileId": 1,
-      "StoreId": 0
+      "ProfileId": 1
     },
     {
       "username": "sellerdummy1",
       "email": "sellerdummy1@gmail.com",
       "password": "sellerdummy1",
       "role": "seller",
-      "ProfileId": 2,
-      "StoreId": 1
+      "ProfileId": 2
     },
     {
       "username": "userdummy1",
       "email": "userdummy1@gmail.com",
       "password": "userdummy1",
       "role": "user",
-      "ProfileId": 3,
-      "StoreId": 0
+      "ProfileId": 3
     }
   ]
   
