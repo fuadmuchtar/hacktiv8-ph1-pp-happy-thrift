@@ -3,9 +3,16 @@ const { Profile, User } = require('../models')
 
 
 class Controller{
-    static async testingPage(req, res){
+    static async dashboard(req, res){
         try {
-            res.send('test....... passed!')
+            res.render('admin')
+        } catch (error) {
+            res.send(error)
+        }
+    }
+    static async landingPage(req, res){
+        try {
+            res.render('landingpage')
         } catch (error) {
             res.send(error)
         }

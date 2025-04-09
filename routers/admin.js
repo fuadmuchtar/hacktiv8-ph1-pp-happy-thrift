@@ -1,8 +1,7 @@
 const express = require('express')
+const Controller = require('../controllers/controller')
 const admin = express.Router()
 
-admin.get('/', (req, res)=>{
-    res.send('masuk')
-})
+admin.get('/', Controller.dashboard)
 
 module.exports = admin
