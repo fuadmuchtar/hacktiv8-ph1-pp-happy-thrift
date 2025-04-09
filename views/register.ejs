@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Registrasi</title>
+    </head>
+    <body>
+        <%- include("_navBar") %>
+        <div class="card p-4 shadow-sm" style="width: 100%; max-width: 400px">
+            <h3 class="text-center mb-4">Register</h3>
+            <form>
+                <!-- Username -->
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input
+                        type="text"
+                        id="username"
+                        class="form-control"
+                        placeholder="Please Input Your Username"
+                        required
+                    />
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        class="form-control"
+                        placeholder="Please Input Your Email"
+                        required
+                    />
+                </div>
+
+                <!-- Password -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        class="form-control"
+                        placeholder="Please Input Your Password"
+                        required
+                    />
+                </div>
+
+                <!-- Role -->
+                <div class="mb-4">
+                    <label for="role" class="form-label">Role</label>
+                    <select id="role" class="form-select" required>
+                        <option value="" selected disabled>
+                            Choose Your Role
+                        </option>
+                        <option value="seller">Seller</option>
+                        <option value="buyer">Buyer</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-dark w-100">
+                    Register
+                </button>
+            </form>
+        </div>
+
+        <%- include("_link") %>
+    </body>
+</html>

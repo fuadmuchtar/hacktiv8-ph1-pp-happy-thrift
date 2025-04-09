@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>landing Page</title>
+    </head>
+    <body>
+        <%- include("_navBar") %>
+        <!-- Landing Content -->
+        <div class="container mt-5">
+            <h1 class="mb-3">Welcome to Happy Thrift!</h1>
+            <p class="mb-5">Explore second-hand treasures at great prices.</p>
+
+            <h3 class="mb-4 fw-bold">Hot Items</h3>
+            <div
+                class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4"
+            >
+                <!-- Item  -->
+                <div class="col">
+                    <div class="card h-100">
+                        <img
+                            src="https://via.placeholder.com/300x300"
+                            class="card-img-top"
+                            alt="Item Image"
+                        />
+                        <div class="card-body">
+                            <h6 class="card-title mb-1 fw-bold">Rp 185.000</h6>
+                            <p class="mb-0 text-muted">Vintage</p>
+                            <p class="mb-0 text-muted">L</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include("_link") %>
+    </body>
+</html>

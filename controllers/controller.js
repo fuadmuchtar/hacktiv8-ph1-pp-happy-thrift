@@ -1,7 +1,5 @@
+// const { Cart, CartProduc, Category, Order } = require("../models");
 
+class Controller {}
 
-class Controller{
-
-}
-
-module.exports = Controller
+module.exports = Controller;

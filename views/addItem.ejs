@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Add Item</title>
+    </head>
+    <body>
+        <%- include("_navBar") %>
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card shadow">
+                        <div class="card-header text-center">
+                            <h4>Add Item</h4>
+                        </div>
+                        <div class="card-body">
+                            <form
+                                action="/add/product"
+                                method="POST"
+                                enctype="multipart/form-data"
+                            >
+                                <div class="mb-3">
+                                    <label for="name" class="form-label"
+                                        >Name</label
+                                    >
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="name"
+                                        name="name"
+                                        placeholder="Input Item Name"
+                                        required
+                                    />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="stock" class="form-label"
+                                        >Stock</label
+                                    >
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        id="stock"
+                                        name="stock"
+                                        placeholder="Input Stock Item"
+                                        required
+                                    />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="price" class="form-label"
+                                        >Price</label
+                                    >
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        id="price"
+                                        name="price"
+                                        placeholder="Input Price Item"
+                                        required
+                                    />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="description" class="form-label"
+                                        >Description</label
+                                    >
+                                    <textarea
+                                        class="form-control"
+                                        id="description"
+                                        name="description"
+                                        rows="3"
+                                        placeholder="Input Description Item"
+                                        required
+                                    ></textarea>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="image" class="form-label"
+                                        >Upload Image</label
+                                    >
+                                    <input
+                                        class="form-control"
+                                        type="file"
+                                        id="image"
+                                        name="image"
+                                        accept="image/*"
+                                        required
+                                    />
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-dark w-100"
+                                >
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include("_link") %>
+    </body>
+</html>
