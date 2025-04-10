@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Store } = require("../models");
 const bcrypt = require("bcryptjs");
 
 class AuthController {
@@ -14,6 +14,11 @@ class AuthController {
         req.session.userId = findUser.id;
         req.session.role = findUser.role;
         req.session.isLoggedIn = true;
+
+        // if(findUser.role === 'seller'){
+        //     let data = await Store.findOne({where: { UserId: findUser.id}})
+        //     req.session.storeId = data.userId
+        // }
 
         if(findUser.role === 'admin') return res.redirect("/admin")
         return res.redirect("/");

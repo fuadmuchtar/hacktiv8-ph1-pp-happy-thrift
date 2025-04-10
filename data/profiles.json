@@ -26,6 +26,19 @@
         "address": "Jl. Raden Intan, Jakarta",
         "phoneNumber": "08123454",
         "UserId": 4
+    },
+    {
+        "firstName": "Zalvin",
+        "lastName": "Van Tovel",
+        "address": "Jl Jambi Indah, No 0812376537 Jambi",
+        "phoneNumber": "0835445664",
+        "UserId": 5
+    },
+    {
+        "firstName": "Mrbudi",
+        "lastName": "Mangku buwono",
+        "address": "Jl jalan-jalan, jakarta Tenggara",
+        "phoneNumber": "0830933636",
+        "UserId": 5
     }
-    
 ]

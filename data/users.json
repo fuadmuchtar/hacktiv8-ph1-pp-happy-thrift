@@ -1,27 +1,38 @@
 [
     {
-      "username": "superadmin",
-      "email": "superadmin@gmail.com",
-      "password": "superadmin",
-      "role": "admin"
+        "username": "superadmin",
+        "email": "superadmin@gmail.com",
+        "password": "superadmin",
+        "role": "admin"
     },
     {
-      "username": "sellerdummy1",
-      "email": "sellerdummy1@gmail.com",
-      "password": "sellerdummy1",
-      "role": "seller"
+        "username": "sellerdummy1",
+        "email": "sellerdummy1@gmail.com",
+        "password": "sellerdummy1",
+        "role": "seller"
     },
     {
-      "username": "sellerdummy2",
-      "email": "sellerdummy2@gmail.com",
-      "password": "sellerdummy2",
-      "role": "seller"
+        "username": "sellerdummy2",
+        "email": "sellerdummy2@gmail.com",
+        "password": "sellerdummy2",
+        "role": "seller"
     },
     {
-      "username": "userdummy1",
-      "email": "userdummy1@gmail.com",
-      "password": "userdummy1",
-      "role": "user"
+        "username": "userdummy1",
+        "email": "userdummy1@gmail.com",
+        "password": "userdummy1",
+        "role": "user"
+    },
+    {
+        "username": "ZalvinVanTofel",
+        "email": "Zalvinvantofelgaul11@gmail.com",
+        "password": "Zalvin69",
+        "role": "user"
+    },
+    {
+        "username": "Mrbudi Mangku buwono",
+        "email": "Budikece75@gmail.com",
+        "password": "bubudidi21",
+        "role": "user"
     }
-  ]
-  
+]

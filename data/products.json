@@ -1,7 +1,317 @@
 [
-    { "name": "Denim Jacket", "stock": 10, "price": 200000, "description": "Keren banget", "StoreId": 1, "CategoryId": 1 },
-    { "name": "Jeans Danjun", "stock": 5, "price": 3000000, "description": "Bahan Super Adem", "StoreId": 2, "CategoryId": 2 },
-    { "name": "Topi Kece", "stock": 20, "price": 150000, "description": "Limited Edition", "StoreId": 2, "CategoryId": 3 },
-    { "name": "Sepatu Jordan", "stock": 15, "price": 80000, "description": "Cocok dipakai bepergian kemanapun", "StoreId": 1, "CategoryId": 3 }
-  ]
-  
+    {
+        "name": "Denim Jacket",
+        "imgURL": "https://d29c1z66frfv6c.cloudfront.net/pub/media/catalog/product/zoom/54caf3b7f9cdc83eb4c315e47fc4fa097871cba2_xxl-1.jpg",
+        "stock": 10,
+        "price": 200000,
+        "description": "Keren banget",
+        "StoreId": 1,
+        "CategoryId": 1
+    },
+    {
+        "name": "Jeans Danjun",
+        "imgURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrNE0lZQn8RlVOFdt1ZP_CqRvUQhN4d_j5Hg&s",
+        "stock": 5,
+        "price": 3000000,
+        "description": "Bahan Super Adem",
+        "StoreId": 2,
+        "CategoryId": 2
+    },
+    {
+        "name": "Topi Kece",
+        "imgURL": "https://images.tokopedia.net/img/cache/700/hDjmkQ/2021/9/18/50829237-ce3a-4019-bddb-8ab4b18dd8a5.jpg",
+        "stock": 20,
+        "price": 150000,
+        "description": "Limited Edition",
+        "StoreId": 2,
+        "CategoryId": 3
+    },
+    {
+        "name": "Sepatu Jordan",
+        "imgURL": "https://www.footlocker.id/media/catalog/product/0/1/01-NIKE-F34KBNIK5-NIKBQ6472130-Ivory.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=1200&width=1200&canvas=1200:1200",
+        "stock": 15,
+        "price": 80000,
+        "description": "Cocok dipakai bepergian kemanapun",
+        "StoreId": 1,
+        "CategoryId": 3
+    },
+    {
+        "name": "Sepatu nike dunk",
+        "imgURL": "https://img.ncrsport.com/img/storage/large/CU4826-001-1.jpg",
+        "stock": 20,
+        "price": 100000,
+        "description": "Cocok dipakai ketika berolahraga",
+        "StoreId": 1,
+        "CategoryId": 3
+    },
+    {
+        "name": "Kemeja Pantai Bali",
+        "imgURL": "https://img.ncrsport.com/img/storage/large/CU4826-001-1.jpg",
+        "stock": 10,
+        "price": 40000,
+        "description": "Bahan dingin seperti dirusia",
+        "StoreId": 2,
+        "CategoryId": 1
+    },
+    {
+        "name": "Kaos I love Bali",
+        "imgURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS44sISjJDNUClbBtaZCdPzg7NXKKHeulZghw&s",
+        "stock": 10,
+        "price": 4000,
+        "description": "Bahan Halus Sehalus Sutra",
+        "StoreId": 1,
+        "CategoryId": 1
+    },
+    {
+        "name": "Kemeja Putih",
+        "imgURL": "https://m231.com/cdn/shop/products/e01caf32177d5e34ec053615884cf0fe_800x.jpg?v=1740391089",
+        "stock": 12,
+        "price": 12000,
+        "description": "Bahan bagus poll",
+        "StoreId": 2,
+        "CategoryId": 1
+    },
+    {
+        "name": "Kaos Lucu",
+        "imgURL": "https://images.tokopedia.net/img/cache/700/VqbcmM/2024/3/15/621d35bb-e6bb-4247-9bda-f66585020d55.jpg",
+        "stock": 60,
+        "price": 110000,
+        "description": "Bahan denak bangett loh",
+        "StoreId": 1,
+        "CategoryId": 1
+    },
+    {
+        "name": "Kemeja haha",
+        "imgURL": "https://images.tokopedia.net/img/cache/700/VqbcmM/2024/3/15/621d35bb-e6bb-4247-9bda-f66585020d55.jpg",
+        "stock": 100,
+        "price": 700000,
+        "description": "Bahan bikin ketawa",
+        "StoreId": 2,
+        "CategoryId": 1
+    },
+    {
+        "name": "Polo shirt",
+        "imgURL": "https://images.tokopedia.net/img/cache/700/VqbcmM/2024/3/15/621d35bb-e6bb-4247-9bda-f66585020d55.jpg",
+        "stock": 4,
+        "price": 4000000,
+        "description": "NIce to use",
+        "StoreId": 1,
+        "CategoryId": 1
+    },
+    {
+        "name": "JaCket Hoodie",
+        "imgURL": "https://s3-ap-southeast-1.amazonaws.com/cdn.jarvis-store.com/kalibre-upload/produk/large/20231027-100423.jpeg",
+        "stock": 110,
+        "price": 500000,
+        "description": "Cozyy aBiiezz",
+        "StoreId": 2,
+        "CategoryId": 1
+    },
+    {
+        "name": "Jacket Army",
+        "imgURL": "https://img.lazcdn.com/g/ff/kf/S9667c5d30ef34ae2920789bc21d03c616.jpg_720x720q80.jpg",
+        "stock": 60,
+        "price": 110000,
+        "description": "Ready for War",
+        "StoreId": 1,
+        "CategoryId": 1
+    },
+    {
+        "name": "Kemeja Pantai Bali",
+        "imgURL": "https://jobb.co.id/wp-content/uploads/2023/10/rug-1681115356647-0.jpg",
+        "stock": 10,
+        "price": 40000,
+        "description": "Bahan dingin seperti dirusia",
+        "StoreId": 2,
+        "CategoryId": 1
+    },
+    {
+        "name": "Baju I Love BUDI",
+        "imgURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_npMNmtd1Oa0avRAAAab-mcBxdZhI_P72Q&s",
+        "stock": 1,
+        "price": 1000000,
+        "description": "Bahan mudah meledak",
+        "StoreId": 2,
+        "CategoryId": 1
+    },
+    {
+        "name": "Celana Chino Prabu",
+        "imgURL": "https://jobb.co.id/wp-content/uploads/2024/02/2fdc6a85-8578-44ca-8b67-47f8ecf093bb.jpg",
+        "stock": 7,
+        "price": 275000,
+        "description": "Nyaman dipakai seharian",
+        "StoreId": 1,
+        "CategoryId": 2
+    },
+    {
+        "name": "Jogger Urban Black",
+        "imgURL": "https://mills.co.id/cdn/shop/files/GABUNG_b6517b98-e970-4eac-8ccd-8eda5b18d5bf.jpg?v=1726829846&width=1445",
+        "stock": 10,
+        "price": 190000,
+        "description": "Cocok untuk tampilan santai",
+        "StoreId": 2,
+        "CategoryId": 2
+    },
+    {
+        "name": "Celana Formal Klasik",
+        "imgURL": "https://cdn.shopify.com/s/files/1/0560/4619/0725/files/Mens_Tapered.jpg?v=1702299585&width=400",
+        "stock": 3,
+        "price": 350000,
+        "description": "Elegan untuk acara resmi",
+        "StoreId": 1,
+        "CategoryId": 2
+    },
+    {
+        "name": "Celana Cargo Army",
+        "imgURL": "https://cardinal.co.id/cdn/shop/files/EBGBPAL012_05D_1.jpg?v=1737704829",
+        "stock": 6,
+        "price": 220000,
+        "description": "Banyak kantong dan kuat",
+        "StoreId": 2,
+        "CategoryId": 2
+    },
+    {
+        "name": "Denim Slim Fit",
+        "imgURL": "https://cardinal.co.id/cdn/shop/files/ECR5F45B-02-1.jpg?v=1741935509",
+        "stock": 4,
+        "price": 310000,
+        "description": "Model kekinian, pas di badan",
+        "StoreId": 1,
+        "CategoryId": 2
+    },
+    {
+        "name": "Celana Training Sporty",
+        "imgURL": "https://upload.jaknot.com/2021/05/images/products/27924a/original/sulee-celana-pendek-olahraga-pria-casual-jogging-fitness-se01.jpg",
+        "stock": 9,
+        "price": 150000,
+        "description": "Ringan dan stretchable",
+        "StoreId": 2,
+        "CategoryId": 2
+    },
+    {
+        "name": "Celana Linen Tropis",
+        "imgURL": "https://d29c1z66frfv6c.cloudfront.net/pub/media/catalog/product/large/107ced66297cc44e8a049ea0e3cf2b809c2a2332_xxl-1.jpg",
+        "stock": 8,
+        "price": 280000,
+        "description": "Bahan adem cocok di cuaca panas",
+        "StoreId": 1,
+        "CategoryId": 2
+    },
+    {
+        "name": "Celana Kargo Santai",
+        "imgURL": "https://embaofficial.com/cdn/shop/files/EMBA_JEANS_-_Celana_Panjang_Pria_Regular_Fit_Non_Stretch_Material_Katun_-_BS08S.1_1.jpg?v=1723016536",
+        "stock": 5,
+        "price": 230000,
+        "description": "Longgar dan nyaman",
+        "StoreId": 2,
+        "CategoryId": 2
+    },
+    {
+        "name": "Celana Kantor Executive",
+        "imgURL": "https://jobb.co.id/wp-content/uploads/2023/10/LUCIDO-JSS2S12G2_1.jpg",
+        "stock": 2,
+        "price": 400000,
+        "description": "Tampilan profesional",
+        "StoreId": 1,
+        "CategoryId": 2
+    },
+    {
+        "name": "Celana Kulot Pria",
+        "imgURL": "https://triplejeans.id/cdn/shop/products/94Z858BWC_1.jpg?v=1679647140",
+        "stock": 6,
+        "price": 265000,
+        "description": "Unik dan stylish",
+        "StoreId": 2,
+        "CategoryId": 2
+    },
+    {
+        "name": "Topi Classic Hitam",
+        "imgURL": "https://triplejeans.id/cdn/shop/products/94Z858BWC_1.jpg?v=1679647140",
+        "stock": 15,
+        "price": 135000,
+        "description": "Desain elegan dan timeless",
+        "StoreId": 1,
+        "CategoryId": 3
+    },
+    {
+        "name": "Gelang Kulit Urban",
+        "imgURL": "https://down-id.img.susercontent.com/file/270cab8745f2d4c47f9a08961ef65a01",
+        "stock": 10,
+        "price": 95000,
+        "description": "Cocok untuk gaya kasual",
+        "StoreId": 2,
+        "CategoryId": 3
+    },
+    {
+        "name": "Kalung Minimalis Perak",
+        "imgURL": "https://dynamic.zacdn.com/34l_gvn36uEXt4f1ZcFx058KCzk=/filters:quality(70):format(webp)/https://static-id.zacdn.com/p/evernoon-2332-3619203-1.jpg",
+        "stock": 8,
+        "price": 185000,
+        "description": "Tampilan simpel tapi mewah",
+        "StoreId": 2,
+        "CategoryId": 3
+    },
+    {
+        "name": "Kacamata Retro",
+        "imgURL": "https://upload.jaknot.com/2022/08/images/products/5b9555/original/aoron-kacamata-hitam-polarized-rb2132.jpg",
+        "stock": 12,
+        "price": 210000,
+        "description": "Lensa UV protection",
+        "StoreId": 1,
+        "CategoryId": 3
+    },
+    {
+        "name": "Cincin Titanium",
+        "imgURL": "https://id-test-11.slatic.net/p/9996c82ee2a95471c90bdaa7d0e4f666.jpg",
+        "stock": 5,
+        "price": 275000,
+        "description": "Tahan lama dan tidak luntur",
+        "StoreId": 2,
+        "CategoryId": 3
+    },
+    {
+        "name": "Topi Bucket Motif",
+        "imgURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD8aw6HP7XehvPm8TL7_8X9O72BxTp_2sEEw&s",
+        "stock": 9,
+        "price": 120000,
+        "description": "Gaya kekinian anak muda",
+        "StoreId": 1,
+        "CategoryId": 3
+    },
+    {
+        "name": "Anting Geometris",
+        "imgURL": "https://shop.mango.com/assets/rcs/pics/static/T8/fotos/S/87005975_OR_B.jpg?imwidth=2048&imdensity=1&ts=1736861663790",
+        "stock": 6,
+        "price": 98000,
+        "description": "Modern dan edgy",
+        "StoreId": 2,
+        "CategoryId": 3
+    },
+    {
+        "name": "Scarf Motif Batik",
+        "imgURL": "https://images.tokopedia.net/img/cache/700/VqbcmM/2023/11/11/79cae4d5-664a-453d-b6e7-7261e9bba397.jpg",
+        "stock": 7,
+        "price": 160000,
+        "description": "Perpaduan tradisi dan tren",
+        "StoreId": 1,
+        "CategoryId": 3
+    },
+    {
+        "name": "Dompet Kecil Lipat",
+        "imgURL": "https://upload.jaknot.com/2023/11/images/products/e7fe70/original/bropes-dompet-pria-bahan-kulit-long-multi-card-leather-wallet-bp-19.jpg",
+        "stock": 20,
+        "price": 110000,
+        "description": "Ringkas dan stylish",
+        "StoreId": 2,
+        "CategoryId": 3
+    },
+    {
+        "name": "Pin Fashion Emoji",
+        "imgURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8b15Dt_Oi-yYdkKCHr9bew7wccyxwwJPhRw&s",
+        "stock": 30,
+        "price": 45000,
+        "description": "Lucu dan ekspresif",
+        "StoreId": 1,
+        "CategoryId": 3
+    }
+]

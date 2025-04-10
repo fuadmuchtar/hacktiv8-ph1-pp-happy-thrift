@@ -1,0 +1,27 @@
+[
+    {
+      "username": "superadmin",
+      "email": "superadmin@gmail.com",
+      "password": "superadmin",
+      "role": "admin"
+    },
+    {
+      "username": "sellerdummy1",
+      "email": "sellerdummy1@gmail.com",
+      "password": "sellerdummy1",
+      "role": "seller"
+    },
+    {
+      "username": "sellerdummy2",
+      "email": "sellerdummy2@gmail.com",
+      "password": "sellerdummy2",
+      "role": "seller"
+    },
+    {
+      "username": "userdummy1",
+      "email": "userdummy1@gmail.com",
+      "password": "userdummy1",
+      "role": "user"
+    }
+  ]
+  

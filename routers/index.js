@@ -25,7 +25,9 @@ router.get("/pants", Controller.getPants);
 router.get("/accessories", Controller.getAccessories);
 router.get("/search", Controller.searchProduct);
 router.get("/:idproduct/addtocart", Controller.addToCart);
-router.get("/cart", Controller.cart);
+router.get("/add/product", Controller.formProduct);
+router.post("/add/product", Controller.postFormProduct);
+
 
 router.get('/admin', AdminController.dashboard)
 // router.get('/admin/setting', AdminController.testingRoute)

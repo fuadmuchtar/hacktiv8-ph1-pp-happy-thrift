@@ -14,7 +14,6 @@ module.exports = (sequelize, DataTypes) => {
       Product.belongsTo(models.Store)
       Product.belongsTo(models.Category)
       Product.hasMany(models.CartProduct)
-      Product.hasMany(models.OrderDetail)
     }
     static async getProductsByCategories(Store, catId){
       try {
