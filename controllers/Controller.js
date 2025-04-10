@@ -126,6 +126,36 @@ class Controller {
       res.send(error);
     }
   }
+  static async getProfile(req, res){
+    try {
+
+        let data = await Profile.findOne({where:{UserId: req.session.userId}})
+        console.log(data)
+        let {role} = req.session
+        if(!role) role = 'guest'
+        res.render('fix/profile', {role, data})
+    } catch (error) {
+        res.send(error)
+    }
+  }
+  static async postProfile(req, res){
+    try {
+        let id = req.session.userId
+        let {firstName, lastName, address, phoneNumber} = req.body
+        // Change everyone without a last name to "Doe"
+await Profile.update(
+    { firstName, lastName, address, phoneNumber },
+    {
+      where: {
+        UserId: id,
+      },
+    },
+  );
+        res.redirect('/profile')
+    } catch (error) {
+        res.send(error)
+    }
+  }
 //   static async checkOut(req, res) {
 //     try {
 //       let { idcart } = req.params;
