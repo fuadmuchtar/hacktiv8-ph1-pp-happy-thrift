@@ -34,25 +34,26 @@
 
             <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
                 <!-- Item Card -->
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <img
-                            src="https://via.placeholder.com/300x300"
-                            class="card-img-top"
-                            alt="Item Image"
-                        />
-                        <div class="card-body">
-                            <h6 class="card-title">Vintage Denim Jacket</h6>
-                            <p class="text-danger mb-1">Rp 185.000</p>
-                            <span class="badge bg-dark">Size L</span>
-                        </div>
-                        <div class="card-footer bg-white">
-                            <button class="btn btn-dark btn-sm w-100">
-                                Add to Cart
-                            </button>
+                 <% data.forEach(element => { %>
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img
+                                src="<%= element.imgURL %>"
+                                class="card-img-top"
+                                alt="Item Image"
+                            />
+                            <div class="card-body">
+                                <h6 class="card-title"><%= element.name %></h6>
+                                <p class="text-danger mb-1"><%= formatPrice(element.price) %></p>
+                                <span class="badge bg-dark"><%= element.Category.name %></span>
+                            </div>
+                            <div class="card-footer bg-white">
+                                <a href="/<%= element.id %>/addtocart" class="btn btn-dark btn-sm w-100">Add to Cart</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                  
+                 <% }) %>
                 <!-- Add more cards as needed -->
             </div>
 

@@ -15,10 +15,10 @@ module.exports = (sequelize, DataTypes) => {
       Product.belongsTo(models.Category)
       Product.hasMany(models.CartProduct)
     }
-    static async getProductsByCategories(Store, catId){
+    static async getProductsByCategories(Categories, catId){
       try {
         return Product.findAll({
-          include: Store,
+          include: Categories,
           where: {
             CategoryId: catId
           }
@@ -30,6 +30,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Product.init({
     name: DataTypes.STRING,
+    imgURL: DataTypes.STRING,
     stock: DataTypes.INTEGER,
     price: DataTypes.INTEGER,
     description: DataTypes.STRING,

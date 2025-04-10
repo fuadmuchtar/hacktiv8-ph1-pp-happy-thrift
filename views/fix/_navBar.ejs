@@ -26,60 +26,16 @@
                     >Happy Thrift</a
                 >
 
-                <!-- Toggle Button -->
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarContent"
-                >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Navbar Content -->
-                <div class="collapse navbar-collapse" id="navbarContent">
-                    <!-- Categories Dropdown -->
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item dropdown">
-                            <a
-                                class="nav-link dropdown-toggle text-dark"
-                                href="#"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                            >
-                                Categories
-                            </a>
-                            <ul class="dropdown-menu shadow-sm">
-                                <li>
-                                    <a
-                                        class="dropdown-item"
-                                        href="/category/clothes"
-                                        >Clothes</a
-                                    >
-                                </li>
-                                <li>
-                                    <a
-                                        class="dropdown-item"
-                                        href="/category/pants"
-                                        >Pants</a
-                                    >
-                                </li>
-                                <li>
-                                    <a
-                                        class="dropdown-item"
-                                        href="/category/accessories"
-                                        >Accessories</a
-                                    >
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+                <a class="nav-link" aria-current="page" href="/clothes">Clothes</a>
+                <a class="nav-link" href="/pants">Pants</a>
+                <a class="nav-link" href="/accessories">Accessories</a>
 
                     <!-- Search Form -->
-                    <form class="d-flex me-3" role="search">
+                    <form class="d-flex me-3" role="search" action="/search" method="get">
                         <div class="input-group">
                             <input
                                 type="search"
+                                name="search"
                                 class="form-control"
                                 placeholder="Search items..."
                                 aria-label="Search"
@@ -92,38 +48,49 @@
 
                     <!-- Navigation Links -->
                     <ul class="navbar-nav mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/add-item">
-                                <i class="fas fa-plus-circle me-1"></i> Add Item
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/profile">
-                                <i class="fas fa-user me-1"></i> Profile
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/cart">
-                                <i class="fas fa-shopping-cart me-1"></i> Cart
-                            </a>
-                        </li>
+                        <% if (role === 'seller') { %>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/add-item">
+                                    <i class="fas fa-plus-circle me-1"></i> Add Item
+                                </a>
+                            </li>
+                        <% } %>
+                        <% if (role !== 'guest') { %>
+                         
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/profile">
+                                    <i class="fas fa-user me-1"></i> Profile
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/cart">
+                                    <i class="fas fa-shopping-cart me-1"></i> Cart
+                                </a>
+                            </li>
+                        <% } %>
 
-                        <!-- Auth Buttons -->
-                        <li class="nav-item ms-2">
-                            <a class="btn btn-outline-dark" href="/login">
-                                <i class="fas fa-sign-in-alt me-1"></i> Login
-                            </a>
-                        </li>
-                        <li class="nav-item ms-2">
-                            <a class="btn btn-dark" href="/register">
-                                <i class="fas fa-user-plus me-1"></i> Register
-                            </a>
-                        </li>
-                        <li class="nav-item ms-2">
-                            <a class="btn btn-danger" href="/logout">
-                                <i class="fas fa-sign-out-alt me-1"></i> Logout
-                            </a>
-                        </li>
+                        <% if (role === 'guest') { %>
+                         
+                            <!-- Auth Buttons -->
+                            <li class="nav-item ms-2">
+                                <a class="btn btn-outline-dark" href="/login">
+                                    <i class="fas fa-sign-in-alt me-1"></i> Login
+                                </a>
+                            </li>
+                            <li class="nav-item ms-2">
+                                <a class="btn btn-dark" href="/register">
+                                    <i class="fas fa-user-plus me-1"></i> Register
+                                </a>
+                            </li>
+                        <% } %>
+                        <% if (role !== 'guest') { %>
+                         
+                            <li class="nav-item ms-2">
+                                <a class="btn btn-danger" href="/logout">
+                                    <i class="fas fa-sign-out-alt me-1"></i> Logout
+                                </a>
+                            </li>
+                        <% } %>
                     </ul>
                 </div>
             </div>

@@ -27,27 +27,47 @@ class AuthController {
       res.redirect("/login");
     }
   }
-  static login(req, res) {
-    res.render("auth/login");
+  static async login(req, res) {
+    try {
+        res.render("auth/login");
+    } catch (error) {
+        res.send(error)
+    }
   }
-  static logout(req, res) {
-    req.session.destroy((err) => {
-      if (err) res.send(err);
-      else {
-        res.redirect("/login");
-      }
-    });
+  static async logout(req, res) {
+    try {
+        
+        req.session.destroy((err) => {
+          if (err) res.send(err);
+          else {
+            res.redirect("/login");
+          }
+        });
+    } catch (error) {
+     res.send(error)   
+    }
   }
-  static registerForm(req, res) {
-    res.render("auth/register");
+  static async registerForm(req, res) {
+    try {
+        let {error} = req.query
+        res.render("auth/register", {error});
+    } catch (error) {
+        res.send(error)
+    }
+
   }
   static async registerPost(req, res) {
     try {
+        console.log(req.body)
       await User.register(req.body);
       res.redirect("/login");
     } catch (error) {
-      console.log(error);
-      res.send(error);
+      if(error.name === 'SequelizeValidationError'){
+                let msg = error.errors.map(err=>{ return err.message})
+                res.redirect(`/register?error=${msg}`)
+            }else{
+                res.send(error)
+            }
     }
   }
 }

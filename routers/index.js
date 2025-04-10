@@ -1,6 +1,5 @@
 const express = require("express");
 const Controller = require("../controllers/Controller");
-const UserController = require("../controllers/UserController");
 const AuthController = require("../controllers/AuthController");
 const AdminController = require("../controllers/AdminController");
 const router = express.Router();
@@ -24,13 +23,13 @@ router.get("/clothes", Controller.getClothes);
 router.get("/pants", Controller.getPants);
 router.get("/accessories", Controller.getAccessories);
 router.get("/search", Controller.searchProduct);
+router.get("/cart", Controller.cart);
 router.get("/:idproduct/addtocart", Controller.addToCart);
 router.get("/add/product", Controller.formProduct);
 router.post("/add/product", Controller.postFormProduct);
 
 
 router.get('/admin', AdminController.dashboard)
-// router.get('/admin/setting', AdminController.testingRoute)
 router.get('/admin/stores', AdminController.getAllStores)
 router.get('/admin/users', AdminController.getAllUsers)
 

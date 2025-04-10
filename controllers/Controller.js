@@ -15,16 +15,24 @@ const formatPrice = require("../helpers/helper");
 class Controller {
   static async homepage(req, res) {
     try {
-      console.log(req.session);
-      res.render("fix/landingPage");
+        let {role} = req.session
+        if(!role) role = 'guest'
+        let data = await Product.findAll({
+            include: Category,
+            limit: 10
+          });
+      res.render("fix/landingPage", {data, role, formatPrice});
     } catch (error) {
       res.send(error);
     }
   }
   static async getClothes(req, res) {
     try {
-      let data = await Product.getProductsByCategories(Store, 1);
-      res.render("development/products", { data, formatPrice });
+        let {role} = req.session
+        if(!role) role = 'guest'
+      let data = await Product.getProductsByCategories(Category, 1);
+      console.log(data)
+      res.render("fix/landingPage", { data, role, formatPrice });
     } catch (error) {
       console.log(error);
       res.send(error);
@@ -32,34 +40,47 @@ class Controller {
   }
   static async getPants(req, res) {
     try {
-      let data = await Product.getProductsByCategories(Store, 2);
-      res.render("development/products", { data, formatPrice });
+        let {role} = req.session
+        if(!role) role = 'guest'
+      let data = await Product.getProductsByCategories(Category, 2);
+      res.render("fix/landingPage", { data, formatPrice, role });
     } catch (error) {
       res.send(error);
     }
   }
   static async getAccessories(req, res) {
     try {
-      let data = await Product.getProductsByCategories(Store, 3);
-      res.render("development/products", { data, formatPrice });
+        let {role} = req.session
+        if(!role) role = 'guest'
+      let data = await Product.getProductsByCategories(Category, 3);
+      res.render("fix/landingPage", { data, formatPrice, role });
     } catch (error) {
       res.send(error);
     }
   }
   static async searchProduct(req, res) {
     try {
+        let {role} = req.session
+        if(!role) role = 'guest'
       let { search } = req.query;
       let data = await Product.findAll({
-        include: Store,
-        where: {
-          name: {
-            [Op.iLike]: `%${search}%`,
-          },
-        },
+        include: Category,
+        limit: 10
       });
+      if (search){
+
+          data = await Product.findAll({
+            include: Category,
+            where: {
+              name: {
+                [Op.iLike]: `%${search}%`,
+              },
+            },
+          });
+      }
       let msg = "";
       if (!data) msg = "There is no match product";
-      res.render("development/products", { data, formatPrice });
+      res.render("fix/landingPage", { data, formatPrice, role });
     } catch (error) {
       res.send(error);
     }
@@ -95,8 +116,11 @@ class Controller {
         where: { UserId: userId },
         include: [{ model: CartProduct, include: [Product] }],
       });
+      let sum = await CartProduct.sum("totalPrice", {
+                where: { CartId: data.id },
+              }); 
       console.log(data);
-      res.render("development/cart", { data, formatPrice });
+      res.render("fix/cart", { data, sum, formatPrice });
     } catch (error) {
       console.log(error);
       res.send(error);
@@ -173,8 +197,9 @@ class Controller {
 
       console.log(data);
 
-      res.redirect("/");
-      // res.render('development/product', {data})
+
+    //   res.redirect("/");
+      res.render('fix/cart', {data})
     } catch (error) {
       console.log(error);
       res.send(error);
