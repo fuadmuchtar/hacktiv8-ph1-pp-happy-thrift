@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cart</title>
+    </head>
+    <body>
+        <%- include("_navBar") %>
+        <div class="container mt-5">
+            <h2 class="mb-4">🛒 Your Shopping Cart</h2>
+
+            <!-- Tabel Daftar Barang -->
+            <div class="table-responsive">
+                <table class="table table-bordered align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Qty</th>
+                            <th>Subtotal</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Item 1 -->
+                        <tr>
+                            <td>Vintage Denim Jacket</td>
+                            <td>Rp 120.000</td>
+                            <td>1</td>
+                            <td>Rp 120.000</td>
+                            <td>
+                                <button class="btn btn-sm btn-danger">
+                                    Remove
+                                </button>
+                            </td>
+                        </tr>
+                        <!-- Item 2 -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Total & Checkout -->
+            <div class="d-flex justify-content-between align-items-center mt-4">
+                <h4>Total: <span class="text-primary">Rp 240.000</span></h4>
+                <a href="/checkout" class="btn btn-success"
+                    >Proceed to Checkout</a
+                >
+            </div>
+
+            <!-- Tombol Kembali -->
+            <div class="mt-3">
+                <a href="/shop" class="btn btn-danger">← Continue Shopping</a>
+            </div>
+        </div>
+
+        <%- include("_link") %>
+    </body>
+</html>

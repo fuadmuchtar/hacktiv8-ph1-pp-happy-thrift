@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Profile</title>
+    </head>
+    <body>
+        <%- include("_navBar") %>
+        <div class="d-flex justify-content-center align-items-center vh-100">
+            <form
+                class="card p-4 shadow-sm"
+                style="width: 100%; max-width: 500px"
+            >
+                <h3 class="text-center mb-4">Edit Profile</h3>
+                <div class="mb-3">
+                    <label class="form-label fw-bold" for="fullname"
+                        >Full Name:</label
+                    >
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="fullname"
+                        name="fullname"
+                        value="Abdullah"
+                        required
+                    />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold" for="address"
+                        >Address:</label
+                    >
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="address"
+                        name="address"
+                        value="Jl Mangga Besar, Jakarta"
+                        required
+                    />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold" for="phone"
+                        >Phone Number:</label
+                    >
+                    <input
+                        type="tel"
+                        class="form-control"
+                        id="phone"
+                        name="phone"
+                        value="0877-8889-0983"
+                        required
+                    />
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                </div>
+            </form>
+        </div>
+        <%- include("_link") %>
+    </body>
+</html>

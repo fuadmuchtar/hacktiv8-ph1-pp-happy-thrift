@@ -16,6 +16,18 @@ module.exports = (sequelize, DataTypes) => {
       Product.hasMany(models.CartProduct)
       Product.hasMany(models.OrderDetail)
     }
+    static async getProductsByCategories(Store, catId){
+      try {
+        return Product.findAll({
+          include: Store,
+          where: {
+            CategoryId: catId
+          }
+        })
+      } catch (error) {
+        throw error
+      }
+    }
   }
   Product.init({
     name: DataTypes.STRING,

@@ -14,6 +14,9 @@ module.exports = (sequelize, DataTypes) => {
       Store.belongsTo(models.User)
       Store.hasMany(models.Product)
     }
+    get joinDate(){
+      return this.createdAt.toLocaleDate()
+    }
   }
   Store.init({
     name: DataTypes.STRING,

@@ -1,0 +1,62 @@
+<%- include('_header') %>
+
+<h1>cart</h1>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Total Price</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% data.CartProducts.forEach((el, index) => { %>
+            <tr>
+                <th scope="col"><%= index+1 %></th>
+                <td><%= el.Product.name %></td>
+                <td><%= el.quantity %></td>
+                <td><%= formatPrice(el.totalPrice * el.quantity) %></td>
+                <td>
+                    <a href="" class="btn btn-outline-secondary">-</a>
+                    <a href="" class="btn btn-outline-secondary me-4">+</a>
+                    <a href="" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+  </table>
+
+  
+  <!-- <a href="/checkout" class="btn btn-success mt-5">Checkout</a> -->
+
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Checkout
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="/assets/payment_logo.jpg" alt="payment">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<%- include('_footer') %>

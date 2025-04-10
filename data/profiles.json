@@ -3,25 +3,29 @@
         "firstName": "Super",
         "lastName": "Admin",
         "address": "Jl. Veteran, Jakarta",
-        "phoneNumber": "08123451"
+        "phoneNumber": "08123451",
+        "UserId": 1
     },
     {
         "firstName": "Seller",
         "lastName": "Dummy1",
         "address": "Jl. Pramuka, Jakarta",
-        "phoneNumber": "08123452"
+        "phoneNumber": "08123452",
+        "UserId": 2
     },
     {
         "firstName": "Seller",
         "lastName": "Dummy2",
         "address": "Jl. Gambir, Jakarta",
-        "phoneNumber": "08123453"
+        "phoneNumber": "08123453",
+        "UserId": 3
     },
     {
         "firstName": "User",
         "lastName": "Dummy1",
         "address": "Jl. Raden Intan, Jakarta",
-        "phoneNumber": "08123454"
+        "phoneNumber": "08123454",
+        "UserId": 4
     }
     
 ]
