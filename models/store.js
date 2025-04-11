@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       Store.hasMany(models.Product)
     }
     get joinDate(){
-      return this.createdAt.toLocaleDate()
+      return this.createdAt.getFullYear()
     }
   }
   Store.init({

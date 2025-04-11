@@ -26,16 +26,19 @@ router.get("/clothes", Controller.getClothes);
 router.get("/pants", Controller.getPants);
 router.get("/accessories", Controller.getAccessories);
 router.get("/search", Controller.searchProduct);
-router.get("/cart", access ,Controller.cart);
+
+router.get("/cart", access , Controller.cart);
 router.get("/:idproduct/addtocart", access, Controller.addToCart);
-router.get("/add/product", Controller.formProduct);
-router.post("/add/product", Controller.postFormProduct);
+router.get("/cart/:idcart/delete/:idproduct", access, Controller.deleteProductCart);
+router.get("/cart/:idcart/payment", access, Controller.cartPayment);
+router.get("/product/add", access, Controller.testingRoute);
+router.post("/product/add", access, Controller.testingRoute);
 router.get("/profile", access, Controller.getProfile);
 router.post("/profile/update", access, Controller.postProfile);
 
-
-router.get('/admin', AdminController.dashboard)
-router.get('/admin/stores', AdminController.getAllStores)
-router.get('/admin/users', AdminController.getAllUsers)
+// admin routes
+router.get('/admin', access, AdminController.dashboard)
+router.get('/admin/stores', access, AdminController.getAllStores)
+router.get('/admin/users', access, AdminController.getAllUsers)
 
 module.exports = router;

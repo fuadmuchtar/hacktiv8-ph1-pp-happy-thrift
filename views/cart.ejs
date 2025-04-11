@@ -1,2 +1,159 @@
-<%- include('_header') %>
-<%- include('_footer') %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+    <style>
+      .table th,
+      .table td {
+        vertical-align: middle;
+        text-align: center;
+      }
+      .table td:first-child {
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include("_navBar") %> <% if (status) { %>
+    <div
+      style="
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      "
+    >
+      <div>
+        <h1>🎉 Thanks for your purchase! 🎉</h1>
+        <p>
+          Your items are being processed. We'll notify you once they're shipped.
+        </p>
+        <a href="/" class="btn btn-primary mt-3">Back to Home</a>
+      </div>
+    </div>
+    <% } else { %>
+    <div class="container mt-5">
+      <h2 class="mb-4">🛒 Your Shopping Cart</h2>
+
+      <% if (notif) { %>
+      <p style="color: red"><b>Product <%= notif %> has been removed</b></p>
+      <% } %>
+
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead class="table-light">
+            <tr>
+              <th class="text-start">Name</th>
+              <th>Price</th>
+              <th>Qty</th>
+              <th>Subtotal</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% let summ = 0 %> <% data.CartProducts.forEach((el) => { %> <% summ
+            += (el.totalPrice * el.quantity) %>
+            <tr>
+              <th scope="row"><%= el.Product.name %></th>
+              <td><%= formatPrice(el.totalPrice) %></td>
+              <td>
+                <%= el.quantity %>
+                <!-- <a href="" class="">-</a> -->
+              </td>
+              <td><%= formatPrice(el.totalPrice * el.quantity) %></td>
+              <td>
+                <a
+                  href="/cart/<%= data.id %>/delete/<%= el.Product.id %>"
+                  class="btn btn-danger"
+                  >Delete</a
+                >
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center mt-4">
+        <h4>
+          Total: <span class="text-primary"><%= formatPrice(summ) %></span>
+        </h4>
+        <% if (data.CartProducts.length > 0) { %>
+        <button
+          type="button"
+          class="btn btn-success"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Proceed to Checkout
+        </button>
+        <% } %>
+      </div>
+
+      <div class="mt-3">
+        <a href="/" class="btn btn-danger">← Continue Shopping</a>
+      </div>
+    </div>
+    <% } %>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">QR Payment</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body text-center">
+            <img src="<%= qr %>" alt="QR Payment" width="300" />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <a href="/cart/<%= data.id %>/payment" class="btn btn-primary"
+              >Pay</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -22,12 +22,5 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "Cart",
     }
   );
-  // Cart.afterCreate((instance) => {
-  //   // const { CartProduct } = instance.sequelize.models;
-  //   // await CartProduct.create({
-  //   //   CartId: '',
-  //   //   UserId: instance.id
-  //   // });
-  // });
   return Cart;
 };

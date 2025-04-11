@@ -18,7 +18,6 @@
                             <form
                                 action="/add/product"
                                 method="POST"
-                                enctype="multipart/form-data"
                             >
                                 <div class="mb-3">
                                     <label for="name" class="form-label"
@@ -84,17 +83,18 @@
 
                                 <div class="mb-3">
                                     <label for="image" class="form-label"
-                                        >Image</label
+                                        >ImageUrl</label
                                     >
                                     <input
                                         class="form-control"
-                                        type="file"
+                                        type="text"
                                         id="image"
                                         name="image"
                                         accept="image/*"
                                         required
                                     />
                                 </div>
+                                <input type="text" name="StoreId" id="storeid" value="<%= StoreId %>" hidden>
 
                                 <div class="d-grid gap-2">
                                     <button type="submit" class="btn btn-dark">

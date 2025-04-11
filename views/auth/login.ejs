@@ -31,6 +31,12 @@
                         </p>
                     </div>
 
+                    <% if (error) { %>
+                        <p style="color: red;">
+                            <%= error %>
+                        </p>
+                    <% } %>
+
                     <form action="/auth" method="post">
                         <div class="mb-3">
                             <label class="form-label">
@@ -40,7 +46,7 @@
                                 type="text"
                                 class="form-control"
                                 name="username"
-                                placeholder="Enter your usernmae"
+                                placeholder="Enter your username"
                                 required
                             />
                         </div>
@@ -68,6 +74,13 @@
                                     href="/register"
                                     class="text-dark text-decoration-none"
                                     >Register here</a
+                                >
+                            </p>
+                            <p class="text-center text-muted mt-3 mb-0">
+                                <a
+                                    href="/"
+                                    class="text-dark text-decoration-none"
+                                    >Browse Products</a
                                 >
                             </p>
                         </div>

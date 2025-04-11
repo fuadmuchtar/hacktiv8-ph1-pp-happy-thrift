@@ -11,251 +11,216 @@ const {
   Store,
 } = require("../models");
 const formatPrice = require("../helpers/helper");
+const qr = require('qrcode')
 
 class Controller {
   static async homepage(req, res) {
     try {
-        let {role} = req.session
-        if(!role) role = 'guest'
-        let data = await Product.findAll({
-            include: Category,
-            limit: 10
-          });
-      res.render("fix/landingPage", {data, role, formatPrice});
+      let { role } = req.session;
+      let data = await Product.findAll({
+        include: Category,
+        limit: 10,
+      });
+      res.render("landingPage", { data, role, formatPrice });
     } catch (error) {
       res.send(error);
     }
   }
+
   static async getClothes(req, res) {
     try {
-        let {role} = req.session
-        if(!role) role = 'guest'
+      let { role } = req.session;
       let data = await Product.getProductsByCategories(Category, 1);
-      console.log(data)
-      res.render("fix/landingPage", { data, role, formatPrice });
+      res.render("landingPage", { data, role, formatPrice });
     } catch (error) {
-      console.log(error);
       res.send(error);
     }
   }
+
   static async getPants(req, res) {
     try {
-        let {role} = req.session
-        if(!role) role = 'guest'
+      let { role } = req.session;
       let data = await Product.getProductsByCategories(Category, 2);
-      res.render("fix/landingPage", { data, formatPrice, role });
+      res.render("landingPage", { data, formatPrice, role });
     } catch (error) {
       res.send(error);
     }
   }
+
   static async getAccessories(req, res) {
     try {
-        let {role} = req.session
-        if(!role) role = 'guest'
+      let { role } = req.session;
       let data = await Product.getProductsByCategories(Category, 3);
-      res.render("fix/landingPage", { data, formatPrice, role });
+      res.render("landingPage", { data, formatPrice, role });
     } catch (error) {
       res.send(error);
     }
   }
+
   static async searchProduct(req, res) {
     try {
-        let {role} = req.session
-        if(!role) role = 'guest'
+      let { role } = req.session;
       let { search } = req.query;
       let data = await Product.findAll({
         include: Category,
-        limit: 10
+        limit: 10,
       });
-      if (search){
-
-          data = await Product.findAll({
-            include: Category,
-            where: {
-              name: {
-                [Op.iLike]: `%${search}%`,
-              },
+      if (search) {
+        data = await Product.findAll({
+          include: Category,
+          where: {
+            name: {
+              [Op.iLike]: `%${search}%`,
             },
-          });
+          },
+        });
       }
       let msg = "";
       if (!data) msg = "There is no match product";
-      res.render("fix/landingPage", { data, formatPrice, role });
+      res.render("landingPage", { data, formatPrice, role });
     } catch (error) {
       res.send(error);
     }
   }
-  static async formProduct(req, res){
+
+  static async formProduct(req, res) {
     try {
-        let userId = req.session.userId
-        // let stores = await User.findOne({include:Store, where:{UserId:userId}} )
-        let stores = await User.findOne({
-            where: { id: userId },
-            include: Store
-          });
-          
-        console.log(stores)
-        res.render('development/addproduct', {StoreId})
+      let userId = req.session.UserId;
+      let stores = await User.findOne({
+        where: { id: userId },
+        include: Store,
+      });
+
+      res.render("addproduct", { StoreId });
     } catch (error) {
-        console.log(error)
-        res.send(error)
+      res.send(error);
     }
   }
-  static async postFormProduct(req, res){
+
+  static async postFormProduct(req, res) {
     try {
-        console.log(req.body)
-        // res.render('development/addproduct')
+      res.redirect('/')
     } catch (error) {
-        res.send(error)
+      res.send(error);
     }
   }
+
+  static async getProfile(req, res) {
+    try {
+      let data = await Profile.findOne({
+        where: { UserId: req.session.UserId },
+      });
+      let { role } = req.session;
+      res.render("profile", { role, data });
+    } catch (error) {
+      res.send(error);
+    }
+  }
+
+  static async postProfile(req, res) {
+    try {
+      let id = req.session.UserId;
+      let { firstName, lastName, address, phoneNumber } = req.body;
+      await Profile.update(
+        { firstName, lastName, address, phoneNumber },
+        {
+          where: {
+            UserId: id,
+          },
+        }
+      );
+      res.redirect("/profile");
+    } catch (error) {
+      res.send(error);
+    }
+  }
+
   static async cart(req, res) {
     try {
-      let userId = req.session.userId;
+      let {notif, status} = req.query
+      let { role } = req.session;
+      let userId = req.session.UserId;
       let data = await Cart.findOne({
         where: { UserId: userId },
         include: [{ model: CartProduct, include: [Product] }],
       });
       let sum = await CartProduct.sum("totalPrice", {
-                where: { CartId: data.id },
-              }); 
-      console.log(data);
-      res.render("fix/cart", { data, sum, formatPrice });
+        where: { CartId: data.id },
+      });
+
+      qr.toDataURL("https://www.ncsc.gov.uk/images/library/QR-IMAGE.png", (err,src) => {
+        res.render("cart", { data, sum, formatPrice, role, notif, qr:src, status });
+    })
     } catch (error) {
-      console.log(error);
       res.send(error);
     }
   }
-  static async getProfile(req, res){
-    try {
-
-        let data = await Profile.findOne({where:{UserId: req.session.userId}})
-        console.log(data)
-        let {role} = req.session
-        if(!role) role = 'guest'
-        res.render('fix/profile', {role, data})
-    } catch (error) {
-        res.send(error)
-    }
-  }
-  static async postProfile(req, res){
-    try {
-        let id = req.session.userId
-        let {firstName, lastName, address, phoneNumber} = req.body
-        // Change everyone without a last name to "Doe"
-await Profile.update(
-    { firstName, lastName, address, phoneNumber },
-    {
-      where: {
-        UserId: id,
-      },
-    },
-  );
-        res.redirect('/profile')
-    } catch (error) {
-        res.send(error)
-    }
-  }
-//   static async checkOut(req, res) {
-//     try {
-//       let { idcart } = req.params;
-//       let totalPrice = await CartProduct.sum("totalPrice", {
-//         where: { CartId: idcart },
-//       }); // 50
-//       let userId = req.session.userId;
-
-//       await Order.create({
-//           UserId: userId,
-//           status: 'shipped'
-//       })
-
-//       let productId = await CartProduct.findAll({ where: { CartId: idcart } });
-//       productId = productId.map((el) => {
-//         return el.ProductId;
-//       });
-//       let products = await Product.findAll({
-//         where: {
-//           id: {
-//             [Op.in]: productId,
-//           },
-//         },
-//       });
-//       products = products.map((el) => {
-//         let product = el.toJSON(); // konversi ke plain object
-//         product.quantity = 1
-//         product.ProductId = product.id
-//         delete product.id
-//         delete product.name;
-//         delete product.stock;
-//         delete product.description;
-//         delete product.StoreId;
-//         delete product.CategoryId;
-
-//         return product;
-//       });
-
-//       await OrderDetail.bulkCreate(products)
-//       //   console.log(products)
-//       res.send(products);
-//       // await OrderDetail.bulkCreate()
-//       // await OrderDetail.create({
-
-//       // })
-//       // res.redirect('/orderhistory')
-//     } catch (error) {
-//       console.log(error);
-//       res.send(error);
-//     }
-//   }
 
   static async addToCart(req, res) {
     try {
       let { idproduct } = req.params;
-      let userId = req.session.userId;
-      console.log(req.session);
-      // await Cart.addToCart(userId, idproduct)
+      let userId = req.session.UserId;
 
+      
       let cart = await Cart.findOne({ where: { UserId: userId } });
       let item = await Product.findOne({ where: { id: idproduct } });
+      
+      let cartProduct = await CartProduct.findOne({where: {CartId: cart.id, ProductId: idproduct}})
 
-      let data = await CartProduct.create({
+      if (cartProduct){
+        await cartProduct.increment('quantity')
+        return res.redirect('/cart')
+      }
+
+      await CartProduct.create({
         CartId: cart.id,
         ProductId: item.id,
         quantity: 1,
         totalPrice: item.price,
       });
 
-      console.log(data);
-
-
-    //   res.redirect("/");
-      res.render('fix/cart', {data})
+      res.redirect('/cart')
     } catch (error) {
-      console.log(error);
       res.send(error);
     }
   }
-  // static async getAllProducts(req, res){
-  //     try {
-  //         let data = await Product.findAll({include:[{model:Category},{model:Store}]})
 
-  //         console.log(data)
-  //         res.render('products', {data})
-  //     } catch (error) {
-  //         res.send(error)
-  //     }
-  // }
-  static async getCart(req, res) {
+  static async deleteProductCart(req, res) {
     try {
-      res.render("cart");
+      let { idcart, idproduct } = req.params;
+      
+      let notif = await Product.findByPk(idproduct);
+
+      let productName = notif.name;
+
+      await CartProduct.destroy({
+        where: {
+          CartId: idcart,
+          ProductId: idproduct
+        },
+      });
+      res.redirect(`/cart?notif=${productName}`)
     } catch (error) {
       res.send(error);
     }
   }
-
+  static async cartPayment(req, res){
+    try {
+      let {idcart} = req.params
+      await CartProduct.destroy({
+        where: {
+          CartId: idcart,
+        },
+      });
+      res.redirect('/cart?status=success')
+    } catch (error) {
+      res.send(error)
+    }
+  }
+  
   static async testingRoute(req, res) {
     try {
-      res.send("sorry.....feature under construction!");
+      res.send("sorry.....feature under maintenance!");
     } catch (error) {
       res.send;
     }

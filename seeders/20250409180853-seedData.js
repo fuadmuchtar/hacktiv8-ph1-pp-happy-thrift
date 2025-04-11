@@ -14,13 +14,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    let profile = require('../data/profiles.json').map(el=>{
-      el.createdAt = el.updatedAt = new Date()
-      return el
-     })
-     await queryInterface.bulkInsert('Profiles', profile, {})
-
-     let user = require('../data/users.json').map(el=>{
+    let user = require('../data/users.json').map(el=>{
       var salt = bcrypt.genSaltSync(10)
       var hash = bcrypt.hashSync(el.password, salt)
 
@@ -29,6 +23,12 @@ module.exports = {
       return el
      })
      await queryInterface.bulkInsert('Users', user, {})
+
+    let profile = require('../data/profiles.json').map(el=>{
+      el.createdAt = el.updatedAt = new Date()
+      return el
+     })
+     await queryInterface.bulkInsert('Profiles', profile, {})
 
      let cart = require('../data/carts.json').map(el=>{
       el.createdAt = el.updatedAt = new Date()
@@ -62,8 +62,8 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete('Profiles', null, {})
     await queryInterface.bulkDelete('Users', null, {})
+    await queryInterface.bulkDelete('Profiles', null, {})
     await queryInterface.bulkDelete('Carts', null, {})
     await queryInterface.bulkDelete('Stores', null, {})
     await queryInterface.bulkDelete('Categories', null, {})

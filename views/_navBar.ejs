@@ -50,12 +50,12 @@
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <% if (role === 'seller') { %>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="/add-item">
+                                <a class="nav-link text-dark" href="/product/add">
                                     <i class="fas fa-plus-circle me-1"></i> Add Item
                                 </a>
                             </li>
                         <% } %>
-                        <% if (role !== 'guest') { %>
+                        <% if (role) { %>
                          
                             <li class="nav-item">
                                 <a class="nav-link text-dark" href="/profile">
@@ -69,7 +69,7 @@
                             </li>
                         <% } %>
 
-                        <% if (role === 'guest') { %>
+                        <% if (!role) { %>
                          
                             <!-- Auth Buttons -->
                             <li class="nav-item ms-2">
@@ -83,7 +83,7 @@
                                 </a>
                             </li>
                         <% } %>
-                        <% if (role !== 'guest') { %>
+                        <% if (role) { %>
                          
                             <li class="nav-item ms-2">
                                 <a class="btn btn-danger" href="/logout">

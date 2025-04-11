@@ -24,11 +24,6 @@ module.exports = (sequelize, DataTypes) => {
     }
 
 
-
-
-
-
-
     static async getUsersNoAdmin() {
       try {
         return User.findAll({ where: { role: { [Op.ne]: "admin" } } });
@@ -45,6 +40,9 @@ module.exports = (sequelize, DataTypes) => {
       username: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: {
+          msg : 'Username already exists!'
+        },
         validate: {
           notNull: {
             msg : 'Username required!'
@@ -129,15 +127,5 @@ module.exports = (sequelize, DataTypes) => {
       UserId: instance.id
     })
   });
-  
-
-  // User.beforeCreate(instance=>{
-  //   instance.Profile.create({
-  //     firstName: "",
-  //     lastName: "",
-  //     address: "",
-  //     phoneNumber: ""
-  //   })
-  // })
   return User;
 };

@@ -4,7 +4,7 @@ const { Profile, User, Cart, CartProduct, Category, Order, OrderDetail, Product,
 class AdminController{
     static async dashboard(req, res){
         try {
-            res.render('development/admin')
+            res.render('admin')
         } catch (error) {
             res.send(error)
         }
@@ -12,7 +12,7 @@ class AdminController{
     static async getAllStores(req, res){
         try {
             let data = await Store.findAll({include:User})
-            res.render('development/admin/stores', {data})
+            res.render('admin/stores', {data})
         } catch (error) {
             res.send(error)
         }
@@ -20,8 +20,7 @@ class AdminController{
     static async getAllUsers(req, res){
         try {
             let data = await User.getUsersNoAdmin()
-            console.log(data)
-            res.render('development/admin/users', {data})
+            res.render('admin/users', {data})
         } catch (error) {
             res.send(error)
         }
